@@ -1,0 +1,163 @@
+body {
+    margin: 0; /* Usuń domyślny margines dla body */
+    box-sizing: border-box;
+}
+/* header */
+.header {
+    background: #000; /* Czarne tło dla nagłówka */
+    display: flex; /* Użyj flexboxa do wyrównania elementów */
+    align-items: center; /* Wyrównanie elementów pionowo */
+}
+
+.logo {
+    width: 100px; /* Szerokość logo; dostosuj zgodnie z rzeczywistym rozmiarem */
+    height: auto; /* Automatyczne dopasowanie wysokości */
+    margin-left: 10px; /* Odstęp od lewej krawędzi */
+}
+/* menu */
+.search-form {
+    display: flex;
+    /*gap: 10px;*/
+    background: #ffffff;
+    padding: 20px;
+    justify-content: center; /* Wycentrowanie formularza */
+}
+
+.search-form select,
+.search-form input[type="text"],
+.search-form input[type="number"] {
+    padding: 10px; /* Większy padding */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    min-width: 120px; /* Minimalna szerokość dla elementów */
+    flex: 1; /* Elastyczność dla zachowania proporcji */
+}
+
+
+.search-form button {
+    padding: 10px 20px; /* Większy padding dla większych przycisków */
+    font-size: 16px; /* Większa czcionka dla tekstu w przyciskach */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #2ADD81;
+    cursor: pointer; /* Dodanie wskaźnika kursora */
+    white-space: nowrap;
+    flex: 0 1 auto;
+}
+
+.search-form button:active {
+    background: #20A761;
+}
+
+/*ANALIZA*/
+
+.form-row {
+    display: flex;
+    justify-content: center; /* Wycentrowanie elementów form-row */
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-row .search-input {
+    flex-grow: 2; /* Większa elastyczność dla pola wyszukiwania */
+    min-width: 240px; /* Minimalna szerokość dla pola wyszukiwania */
+}
+
+
+/* Style dla label z checkboxem */
+.form-row label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.form-row label input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+
+/* main */
+
+.card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 20px auto; /* Większy margines zewnętrzny dla lepszego oddzielenia kart */
+    max-width: 80%; /* Szerokość karty jest obliczana jako 100% szerokości kontenera minus marginesy po bokach */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Dodanie cienia dla głębi */
+
+}
+
+.main-content {
+    max-width: 70%; /* Pozwala na rozszerzenie na całą szerokość */
+    margin: 0 auto; /* Wycentrowanie głównej treści */
+    padding: 0 20px; /* Dodanie wewnętrznego odstępu */
+
+}
+
+.car-image {
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.car-details {
+    flex-grow: 1;
+}
+
+.car-price {
+    font-weight: bold;
+    margin-left: auto; /* Aby tekst ceny był wyrównany do prawej */
+}
+
+.main-content button {
+    padding: 10px 20px; /* Większy padding dla większych przycisków */
+    font-size: 16px; /* Większa czcionka dla tekstu w przyciskach */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #2ADD81;
+    cursor: pointer; /* Dodanie wskaźnika kursora */
+    white-space: nowrap;
+    flex: 0 1 auto;
+}
+
+
+/* Stylizacja nawigacji */
+.pagination {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    background: #000; /* Czarne tło dla nawigacji */
+    color: white; /* Białe napisy */
+    width: 100%; /* Szerokość na 100% ekranu */
+    padding: 10px 0; /* Dodaje padding górny i dolny */
+    margin: 0; /* Usuwa marginesy zewnętrzne */
+    box-sizing: border-box;
+}
+
+.pagination li a {
+    text-decoration: none;
+    color: white; /* Białe napisy */
+    font-size: 18px;
+    padding: 5px 10px;
+    background: transparent; /* Przezroczyste tło dla linków */
+}
+
+.pagination li.active a {
+    border: 2px solid white; /* Białe obramowanie dla aktywnego elementu */
+    border-radius: 50%;
+}
+
+.pagination li a:hover {
+    text-decoration: underline;
+    background-color: #2ADD81; /* Zielone tło dla linków podczas najechania */
+}
+.pagination li.disabled {
+    color: grey;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CarZone</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<div class="header">
+    <img src="/jpg/logo.png" alt="CarZone Logo" class="logo"> <!-- Dodane logo -->
+</div>
+<div class="container">
+    <form class="search-form">
+        <div class="search-options">
+            <div class="form-row">
+                <select name="vehicle_brand">
+                    <option value="">Toyota</option>
+                    <option value="">Mazda</option>
+                    <option value="">BMW</option>
+                </select>
+                <select name="vehicle_model">
+                    <option value="">Model_1</option>
+                    <option value="">Model_2</option>
+                    <option value="">Model_3</option>
+                </select>
+                <select name="generation">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                </select>
+                <select name="body_type">
+                    <option value="">Sedan</option>
+                    <option value="">SUV</option>
+                    <option value="">Kombi</option>
+                </select>
+                <input name="price_from" type="text" placeholder="Cena od">
+                <input name="price_to" type="text" placeholder="Cena do">
+            </div>
+
+            <div class="form-row">
+                <input name="year_of_production_from" type="text" placeholder="Rok produkcji od">
+                <input name="year_of_production_to" type="text" placeholder="Rok produkcji do">
+                <select name="fuel_type">
+                    <option value="">Rodzaj paliwa</option>
+                </select>
+                <input name="mileage_from" type="text" placeholder="Przebieg od">
+                <input name="mileage_to" type="text" placeholder="Przebieg do">
+                <select name="location">
+                    <option value="">Lokalizacja</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <select name="vehicle_condition">
+                    <option value="">Damaged</option>
+                    <option value="">Undamaged</option>
+                </select>
+                <input type="text" placeholder="Wpisz model, wersję lub inne szczegóły" class="search-input">
+                <label><input type="checkbox"> Możliwość finansowania</label>
+                <select name="special_programs">
+                    <option value="">Programy specjalne</option>
+                </select>
+                <button type="button" class="filters-button">Pokaż więcej filtrów</button>
+                <button type="submit"><i class="fas fa-search"></i> Szukaj</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- -->
+    <!-- -->
+    <!-- -->
+    <main class="main-content">
+        <div th:each="advert : ${list}" class="card">
+            <img src="/jpg/a.jpg" alt="th:text='${advert.vehicleBrand} + ' ' + ${advert.vehicleModel}'" class="car-image">
+            <div class="car-details">
+                <h1 th:text="${advert.vehicleBrand + ' ' + advert.vehicleModel}"></h1>
+                <p th:text="${advert.engineSize + 'cm³ • ' + advert.power + ' KM'}"></p>
+                <p th:text="${advert.mileage + ' km • ' + advert.fuelType + ' • ' + advert.gear + ' • ' + advert.yearOfProduction}"></p>
+                <p th:text="${advert.location}"></p>
+                <p>Rodzaj sprzedawcy: <span th:text="${advert.seller}"></span></p>
+            </div>
+            <div class="car-price">
+                <p th:text="${advert.price + 'PLN'}"></p>
+                <p>W granicach średniej</p>
+                <button onclick="location.href='link_do_finansowania'">Sprawdź możliwości finansowania</button>
+            </div>
+        </div>
+    </main>
+        <!-- -->
+        <!-- -->
+        <div class="navigation">
+            <ul class="pagination">
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li class="disabled">...</li>
+                <li><a href="#">7126</a></li>
+                <li><a href="#">&gt;</a></li>
+            </ul>
+        </div>
+
+        <!-- -->
+        <!-- -->
+        <!-- -->
+        <!--
+         <footer class="footer">
+             <p>MovieClub 2022 <i class="fas fa-copyright"></i> JavaStart.pl</p>
+         </footer>
+         -->
+</div>
+</body>
+</html>

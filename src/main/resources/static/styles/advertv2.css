@@ -1,0 +1,65 @@
+/* ------------general settings-------------- */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* It is good practice when you start creating website to reset all the margins and paddings */
+.header {
+    background: #000;
+    align-items: center;
+}
+.logo {
+    width: 100px;
+    height: auto;
+    margin-left: 10px;
+}
+.container{
+    display: flex;
+    padding: 10px;
+}
+/* -----------left,white-space-------------- */
+.white-space{
+    width: 10%;
+    /*background: #000;*/
+}
+/* ---------------left--------------------- */
+.left{
+    width: 60%;
+    display: flex; /* Ustawienie flexbox dla .left */
+    flex-direction: column; /* Ustawienie kierunku flexbox na pionowy */
+    padding: 10px;
+    /*background: #ffbfd3;*/
+}
+.main-image {
+    width: 80%;
+    height: auto;
+    /*
+    width: 65%;
+    height: auto;
+    */
+}
+.photos{
+    /*text-align: right;*/
+    display: flex;
+    background: #d3d3d3;
+    justify-content: center;
+    align-items: center;
+}
+.details {
+    padding: 10px;
+}
+/* ---------------right--------------------- */
+.right{
+    width: 30%;
+    padding: 10px;
+}
+
+.base-informations {
+    padding: 10px;
+}
+.price{
+    font-weight: bold;
+    color: #2ADD81;
+}
+/* --------------------------------------- */

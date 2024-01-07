@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+    <changeSet id="0001-1" author="GałwaDaniel">
+        <createTable tableName="ad">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="vehicle_brand" type="VARCHAR(100)"/>
+            <column name="vehicle_model" type="VARCHAR(100)"/>
+            <column name="price" type="INT"/>
+            <column name="engine_size" type="INT"/>
+            <column name="power" type="INT"/>
+            <column name="mileage" type="INT"/>
+            <column name="fuel_type" type="VARCHAR(100)"/>
+            <column name="gear" type="VARCHAR(100)"/>
+            <column name="year_of_production" type="INT"/>
+            <column name="location" type="VARCHAR(100)"/>
+            <column name="seller" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
