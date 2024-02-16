@@ -1,22 +1,61 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toyota Supra</title>
     <link rel="stylesheet" href="/styles/advert.css">
 </head>
 <body>
-<div class="header">
-    <img src="/jpg/logo.png" alt="CarZone Logo" class="logo"> <!-- Dodane logo -->
-</div>
-<div class="container">
-    <img class="main-image" src="/jpg/img.png" alt="Toyota Supra 2.0 Turbo Dynamic">
-    <div class="details">
-        <h1>Toyota Supra 2.0 Turbo Dynamic</h1>
-        <div>2023 · 1 km · 1998 cm³ · Benzyna</div>
-        <div class="price">235 900 PLN</div>
-        <div class="vat">Faktura VAT</div>
+
+<div layout:fragment="content">
+    <div class="white-space">
+    </div>
+    <div class="left">
+        <div class="photos">
+            <img class="main-image" src="/jpg/img.png">
+        </div>
+        <h1>Szczegóły</h1>
+        <div class="details">
+            <table class="table-details">
+                <tr>
+                    <td>Marka</td> <td th:text="${ad.vehicleBrand}"></td>
+                </tr>
+                <tr>
+                    <td>Model</td> <td th:text="${ad.vehicleModel}"></td>
+                </tr>
+                <tr>
+                    <td>Moc</td> <td th:text="${ad.power}"></td>
+                </tr>
+                <tr>
+                    <td>Lokalizacja</td> <td th:text="${ad.location}"></td>
+                </tr>
+            </table>
+            <table class="table-details">
+                <tr>
+                    <td>Pojemność skokowa</td> <td th:text="${ad.engineSize}"></td>
+                </tr>
+                <tr>
+                    <td>Rodzaj paliwa</td> <td th:text="${ad.fuelType}"></td>
+                </tr>
+                <tr>
+                    <td>Przebieg</td> <td th:text="${ad.mileage}"></td>
+                </tr>
+                <tr>
+                    <td>Skrzynia biegów</td> <td th:text="${ad.gear}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="right">
+        <div class="base-informations">
+            <h1 th:text="${ad.vehicleBrand + ' ' + ad.vehicleModel}"></h1>
+            <div th:text="${ad.yearOfProduction + ' · ' + ad.mileage + ' km · ' + ad.engineSize + ' cm³ · ' + ad.fuelType}"></div>
+            <div class="price" th:text="${ad.price} + ' PLN'"></div>
+            <div>Faktura VAT</div>
+        </div>
     </div>
 </div>
 </body>

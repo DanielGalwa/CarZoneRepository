@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
     <title>CarZone</title>
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-<div class="header">
-    <img src="/jpg/logo.png" alt="CarZone Logo" class="logo"> <!-- Dodane logo -->
-</div>
-<div class="container">
+
+<div layout:fragment="content">
     <form class="search-form">
         <div class="search-options">
             <div class="form-row">
@@ -70,17 +71,17 @@
     <!-- -->
     <!-- -->
     <main class="main-content">
-        <div th:each="advert : ${list}" class="card">
+        <div th:each="ad : ${list}" class="card">
             <img src="/jpg/a.jpg" alt="th:text='${advert.vehicleBrand} + ' ' + ${advert.vehicleModel}'" class="car-image">
             <div class="car-details">
-                <h1 th:text="${advert.vehicleBrand + ' ' + advert.vehicleModel}"></h1>
-                <p th:text="${advert.engineSize + 'cm³ • ' + advert.power + ' KM'}"></p>
-                <p th:text="${advert.mileage + ' km • ' + advert.fuelType + ' • ' + advert.gear + ' • ' + advert.yearOfProduction}"></p>
-                <p th:text="${advert.location}"></p>
-                <p>Rodzaj sprzedawcy: <span th:text="${advert.seller}"></span></p>
+                <h1 th:text="${ad.vehicleBrand + ' ' + ad.vehicleModel}"></h1>
+                <p th:text="${ad.engineSize + 'cm³ • ' + ad.power + ' KM'}"></p>
+                <p th:text="${ad.mileage + ' km • ' + ad.fuelType + ' • ' + ad.gear + ' • ' + ad.yearOfProduction}"></p>
+                <p th:text="${ad.location}"></p>
+                <p>Rodzaj sprzedawcy: <span th:text="${ad.seller}"></span></p>
             </div>
             <div class="car-price">
-                <p th:text="${advert.price + 'PLN'}"></p>
+                <p th:text="${ad.price + 'PLN'}"></p>
                 <p>W granicach średniej</p>
                 <button onclick="location.href='link_do_finansowania'">Sprawdź możliwości finansowania</button>
             </div>
