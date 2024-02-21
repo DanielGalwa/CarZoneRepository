@@ -14,8 +14,10 @@ public class AdDto {
     private String location;
     private String seller;
 
+    private String picture;
+
     public AdDto(Long id, String vehicleBrand, String vehicleModel, int price, int engineSize, int power, int mileage,
-                 String fuelType, String gear, int yearOfProduction, String location, String seller) {
+                 String fuelType, String gear, int yearOfProduction, String location, String seller, String picture) {
         this.id = id;
         this.vehicleBrand = vehicleBrand;
         this.vehicleModel = vehicleModel;
@@ -28,6 +30,15 @@ public class AdDto {
         this.yearOfProduction = yearOfProduction;
         this.location = location;
         this.seller = seller;
+        this.picture = picture;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public Long getId() {

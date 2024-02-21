@@ -1,28 +1,29 @@
-/* ------------general settings-------------- */
+/* Delete Default Settings */
 * {
     margin: 0;
     padding: 0;
 }
-
-/* It is good practice when you start creating website to reset all the margins and paddings */
+/* Header */
 .header {
     background: #000;
     align-items: center;
+    display: flex;
 }
 .logo {
     width: 100px;
     height: auto;
     margin-left: 10px;
 }
+/* Main Content*/
 .container{
     display: flex;
     padding: 10px;
 }
-/* -----------left,white-space-------------- */
+/* Left,White-Space*/
 .white-space{
     width: 10%;
 }
-/* ---------------left--------------------- */
+/* Left */
 .left{
     width: 60%;
     display: flex;
@@ -35,7 +36,6 @@
 
 }
 .photos{
-    /*text-align: right;*/
     display: flex;
     background: #d3d3d3;
     justify-content: center;
@@ -51,12 +51,11 @@
 .table-details{
     width: 45%;
 }
-/* ---------------right--------------------- */
+/* Right */
 .right{
     width: 30%;
     padding: 10px;
 }
-
 .base-informations {
     padding: 10px;
 }

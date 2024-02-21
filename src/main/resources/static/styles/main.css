@@ -1,20 +1,21 @@
+/* Delete Default Settings */
 body {
-    margin: 0; /* Usuń domyślny margines dla body */
+    margin: 0;
     box-sizing: border-box;
 }
-/* header */
+/* Header */
 .header {
-    background: #000; /* Czarne tło dla nagłówka */
-    display: flex; /* Użyj flexboxa do wyrównania elementów */
-    align-items: center; /* Wyrównanie elementów pionowo */
+    background: #000;
+    display: flex;
+    align-items: center;
 }
 
 .logo {
-    width: 100px; /* Szerokość logo; dostosuj zgodnie z rzeczywistym rozmiarem */
-    height: auto; /* Automatyczne dopasowanie wysokości */
-    margin-left: 10px; /* Odstęp od lewej krawędzi */
+    width: 100px;
+    height: auto;
+    margin-left: 10px;
 }
-/* menu */
+/* Menu */
 .search-form {
     display: flex;
     /*gap: 10px;*/
@@ -66,7 +67,7 @@ body {
 }
 
 
-/* Style dla label z checkboxem */
+/* Styles For Label with Checkboxem */
 .form-row label {
     display: flex;
     align-items: center;
@@ -78,84 +79,90 @@ body {
 }
 
 
-/* main */
+/* Main Content */
+/* List of cars */
+.main-content {
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 0 20px;
 
+}
+/* Links style */
+a, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+/* Card style */
 .card {
     display: flex;
     align-items: center;
     border: 1px solid #ddd;
     padding: 10px;
-    margin: 20px auto; /* Większy margines zewnętrzny dla lepszego oddzielenia kart */
-    max-width: 80%; /* Szerokość karty jest obliczana jako 100% szerokości kontenera minus marginesy po bokach */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Dodanie cienia dla głębi */
+    margin: 20px auto;
+    max-width: 80%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 
 }
-
-.main-content {
-    max-width: 70%; /* Pozwala na rozszerzenie na całą szerokość */
-    margin: 0 auto; /* Wycentrowanie głównej treści */
-    padding: 0 20px; /* Dodanie wewnętrznego odstępu */
-
-}
-
+/* Three elements of Card */
+/* Image */
 .car-image {
     width: 200px;
     height: auto;
     margin-right: 20px;
 }
-
+/* Tech details */
 .car-details {
     flex-grow: 1;
 }
-
+/* Finances fetails*/
 .car-price {
     font-weight: bold;
-    margin-left: auto; /* Aby tekst ceny był wyrównany do prawej */
+    margin-left: auto;
 }
 
-.main-content button {
-    padding: 10px 20px; /* Większy padding dla większych przycisków */
-    font-size: 16px; /* Większa czcionka dla tekstu w przyciskach */
+.finances-button {
+    padding: 10px 20px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     color: white;
     background: #2ADD81;
-    cursor: pointer; /* Dodanie wskaźnika kursora */
+    cursor: pointer;
     white-space: nowrap;
     flex: 0 1 auto;
 }
 
 
-/* Stylizacja nawigacji */
+/* Pagination style */
 .pagination {
     display: flex;
     list-style-type: none;
     justify-content: center;
     align-items: center;
-    background: #000; /* Czarne tło dla nawigacji */
-    color: white; /* Białe napisy */
-    width: 100%; /* Szerokość na 100% ekranu */
-    padding: 10px 0; /* Dodaje padding górny i dolny */
-    margin: 0; /* Usuwa marginesy zewnętrzne */
+    background: #000;
+    color: white;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
 .pagination li a {
     text-decoration: none;
-    color: white; /* Białe napisy */
+    color: white;
     font-size: 18px;
     padding: 5px 10px;
-    background: transparent; /* Przezroczyste tło dla linków */
+    background: transparent;
 }
 
 .pagination li.active a {
-    border: 2px solid white; /* Białe obramowanie dla aktywnego elementu */
+    border: 2px solid white;
     border-radius: 50%;
 }
 
 .pagination li a:hover {
     text-decoration: underline;
-    background-color: #2ADD81; /* Zielone tło dla linków podczas najechania */
+    background-color: #2ADD81;
 }
 .pagination li.disabled {
     color: grey;

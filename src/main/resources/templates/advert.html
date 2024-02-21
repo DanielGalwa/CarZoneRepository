@@ -5,7 +5,7 @@
       layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Toyota Supra</title>
+    <title th:text="${ad.vehicleBrand + ' ' + ad.vehicleModel}">></title>
     <link rel="stylesheet" href="/styles/advert.css">
 </head>
 <body>
@@ -13,12 +13,17 @@
 <div layout:fragment="content">
     <div class="white-space">
     </div>
+    <!-- Left Side of Page -->
     <div class="left">
+        <!-- Main Photo And Smaller Photos -->
         <div class="photos">
-            <img class="main-image" src="/jpg/img.png">
+            <img class="main-image"
+                 th:src="${ad.picture != null} ? '/img/' + ${ad.picture} : '/img/picture-placeholder.png'"/>
         </div>
+        <!-- Details -->
         <h1>Szczegóły</h1>
         <div class="details">
+            <!-- Left column -->
             <table class="table-details">
                 <tr>
                     <td>Marka</td> <td th:text="${ad.vehicleBrand}"></td>
@@ -33,6 +38,7 @@
                     <td>Lokalizacja</td> <td th:text="${ad.location}"></td>
                 </tr>
             </table>
+            <!-- Right column -->
             <table class="table-details">
                 <tr>
                     <td>Pojemność skokowa</td> <td th:text="${ad.engineSize}"></td>
@@ -49,6 +55,7 @@
             </table>
         </div>
     </div>
+    <!-- Right Side of Page -->
     <div class="right">
         <div class="base-informations">
             <h1 th:text="${ad.vehicleBrand + ' ' + ad.vehicleModel}"></h1>

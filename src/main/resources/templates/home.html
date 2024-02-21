@@ -8,8 +8,8 @@
     <title>CarZone</title>
     <link rel="stylesheet" href="/styles/main.css">
 </head>
-<body>
-
+<body>>
+<!-- Search Bar -->
 <div layout:fragment="content">
     <form class="search-form">
         <div class="search-options">
@@ -67,14 +67,16 @@
         </div>
     </form>
 
-    <!-- -->
-    <!-- -->
-    <!-- -->
+    <!-- Main Content -->
     <main class="main-content">
         <div th:each="ad : ${list}" class="card">
-            <img src="/jpg/a.jpg" alt="th:text='${advert.vehicleBrand} + ' ' + ${advert.vehicleModel}'" class="car-image">
+            <!--  Single Card  -->
+            <img class="car-image"
+                 th:src="${ad.picture != null} ? '/img/' + ${ad.picture} : '/img/picture-placeholder.png'"/>
             <div class="car-details">
-                <h1 th:text="${ad.vehicleBrand + ' ' + ad.vehicleModel}"></h1>
+                <h1>
+                    <a th:href="@{/ad/{id}(id=${ad.id})}" th:text="${ad.vehicleBrand + ' ' + ad.vehicleModel}"></a>
+                </h1>
                 <p th:text="${ad.engineSize + 'cm³ • ' + ad.power + ' KM'}"></p>
                 <p th:text="${ad.mileage + ' km • ' + ad.fuelType + ' • ' + ad.gear + ' • ' + ad.yearOfProduction}"></p>
                 <p th:text="${ad.location}"></p>
@@ -83,12 +85,12 @@
             <div class="car-price">
                 <p th:text="${ad.price + 'PLN'}"></p>
                 <p>W granicach średniej</p>
-                <button onclick="location.href='link_do_finansowania'">Sprawdź możliwości finansowania</button>
+                <button class = "finances-button" onclick="location.href='link_do_finansowania'">Sprawdź możliwości finansowania</button>
             </div>
-        </div>
-    </main>
-        <!-- -->
-        <!-- -->
+            <!--  end, Single Card  -->
+      </div>
+  </main>
+        <!-- Pagination bar -->
         <div class="navigation">
             <ul class="pagination">
                 <li class="active"><a href="#">1</a></li>
@@ -100,9 +102,8 @@
             </ul>
         </div>
 
-        <!-- -->
-        <!-- -->
-        <!-- -->
+        <!-- Fotter -->
+
         <!--
          <footer class="footer">
              <p>MovieClub 2022 <i class="fas fa-copyright"></i> JavaStart.pl</p>

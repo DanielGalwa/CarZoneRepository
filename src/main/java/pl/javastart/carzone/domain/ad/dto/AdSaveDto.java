@@ -1,14 +1,8 @@
-package pl.javastart.carzone.domain.ad;
+package pl.javastart.carzone.domain.ad.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.web.multipart.MultipartFile;
 
-@Entity
-public class Ad {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class AdSaveDto {
     private Long id;
     private String vehicleBrand;
     private String vehicleModel;
@@ -21,13 +15,24 @@ public class Ad {
     private int yearOfProduction;
     private String location;
     private String seller;
-    private String picture;
 
-    public String getPicture() {
-        return picture;
-    }
+    private MultipartFile picture;
 
-    public void setPicture(String picture) {
+    public AdSaveDto(Long id, String vehicleBrand, String vehicleModel, int price, int engineSize,
+                     int power, int mileage, String fuelType, String gear, int yearOfProduction,
+                     String location, String seller, MultipartFile picture) {
+        this.id = id;
+        this.vehicleBrand = vehicleBrand;
+        this.vehicleModel = vehicleModel;
+        this.price = price;
+        this.engineSize = engineSize;
+        this.power = power;
+        this.mileage = mileage;
+        this.fuelType = fuelType;
+        this.gear = gear;
+        this.yearOfProduction = yearOfProduction;
+        this.location = location;
+        this.seller = seller;
         this.picture = picture;
     }
 
@@ -125,5 +130,13 @@ public class Ad {
 
     public void setSeller(String seller) {
         this.seller = seller;
+    }
+
+    public MultipartFile getPicture() {
+        return picture;
+    }
+
+    public void setPicture(MultipartFile picture) {
+        this.picture = picture;
     }
 }

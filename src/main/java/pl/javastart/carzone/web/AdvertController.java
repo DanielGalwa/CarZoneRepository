@@ -25,4 +25,22 @@ public class AdvertController {
         model.addAttribute("ad", ad);
         return "advert";
     }
+
+   /* @GetMapping("/admin/dodaj-film")
+    public String addMovieForm(Model model) {
+        List<GenreDto> allGenres = genreService.findAllGenres();
+        model.addAttribute("genres", allGenres);
+        MovieSaveDto movie = new MovieSaveDto();
+        model.addAttribute("movie", movie);
+        return "admin/movie-form";
+    }
+
+    @PostMapping("/admin/dodaj-film")
+    public String addMovie(MovieSaveDto movie, RedirectAttributes redirectAttributes) {
+        movieService.addMovie(movie);
+        redirectAttributes.addFlashAttribute(
+                AdminController.NOTIFICATION_ATTRIBUTE,
+                "Film %s został zapisany".formatted(movie.getTitle()));
+        return "redirect:/admin";
+    }*/
 }
