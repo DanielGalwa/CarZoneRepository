@@ -18,23 +18,7 @@ public class AdSaveDto {
 
     private MultipartFile picture;
 
-    public AdSaveDto(Long id, String vehicleBrand, String vehicleModel, int price, int engineSize,
-                     int power, int mileage, String fuelType, String gear, int yearOfProduction,
-                     String location, String seller, MultipartFile picture) {
-        this.id = id;
-        this.vehicleBrand = vehicleBrand;
-        this.vehicleModel = vehicleModel;
-        this.price = price;
-        this.engineSize = engineSize;
-        this.power = power;
-        this.mileage = mileage;
-        this.fuelType = fuelType;
-        this.gear = gear;
-        this.yearOfProduction = yearOfProduction;
-        this.location = location;
-        this.seller = seller;
-        this.picture = picture;
-    }
+
 
     public Long getId() {
         return id;

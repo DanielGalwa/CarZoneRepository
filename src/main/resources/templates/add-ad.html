@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodawanie ogłoszenia</title>
+    <link rel="stylesheet" href="/styles/add.css">
+</head>
+<body>
+    <div layout:fragment="content">
+        <form action="" method="post" enctype="multipart/form-data" th:object="${ad}">
+            <div class="add-form">
+                <h1>Stwórz ogłoszenie</h1>
+                <!--         -->
+                <div class="type-of-vehicle">
+                    <select id="select-type-of-vehicle">
+                        <option>Osobowe</option>
+                        <option>Dostawcze</option>
+                        <option>Motocykle</option>
+                        <option>Ciężarowe</option>
+                        <option>Przyczepy</option>
+                        <option>Motocykle</option>
+                        <option>Budowlane</option>
+                        <option>Rolnicze</option>
+                    </select>
+                </div>
+                <!--         -->
+                <h1>Dane pojazdu</h1>
+                <div class="vehicle-condition">
+                    <div class="options">
+                        <label>Uszkodzony</label>
+                        <input type="radio" id="damaged_no" name="damaged" value="no" checked>
+                        <label for="damaged_no">Nie</label>
+                        <input type="radio" id="damaged_yes" name="damaged" value="yes">
+                        <label for="damaged_yes">Tak</label>
+                    </div>
+                    <div class="options">
+                        <label>Importowany</label>
+                        <input type="radio" id="imported_no" name="imported" value="no" checked>
+                        <label for="imported_no">Nie</label>
+                        <input type="radio" id="imported_yes" name="imported" value="yes">
+                        <label for="imported_yes">Tak</label>
+                    </div>
+                </div>
+                <!--         -->
+                <div class="identification">
+                    <label for="vin">VIN*</label>
+                    <input type="text" id="vin" name="vin" required placeholder="np. 1FTPW14V88FC22108" />
+                    <label for="mileage">Przebieg</label>
+                    <input type="number" id="mileage" name="mileage" th:field="*{mileage}"/>
+                </div>
+                <!--         -->
+                <h1>Dane techniczne</h1>
+                <div class="tech-data">
+                    <!-- Lewa kolumna -->
+                    <div class="form-column">
+                        <label for="year">Rok produkcji:</label>
+                        <input type="number" id="year" name="year"  th:field="*{yearOfProduction}">
+                        <!-- <select id="year" name="year" th:field="*{yearOfProduction}">
+                            <option value="2024" >2024</option>
+
+                        </select> -->
+
+                        <label for="model">Model pojazdu:</label>
+                        <select id="model" name="model" th:field="*{vehicleModel}">
+                            <option value="testModel">testModel</option>
+                            <!-- Opcje modelu -->
+                        </select>
+
+                        <label for="power">Moc:</label>
+                        <input type="number" id="power" name="power"  th:field="*{power}">
+
+                        <label for="doors">Liczba drzwi:</label>
+                        <select id="doors" name="doors">
+                            <option value="">Wybierz</option>
+                            <!-- Opcje liczby drzwi -->
+                        </select>
+
+                        <label for="version">Wersja:</label>
+                        <select id="version" name="version">
+                            <option value="">Wybierz</option>
+                            <!-- Opcje wersji -->
+                        </select>
+
+                        <label for="body">Typ nadwozia:</label>
+                        <select id="body" name="body">
+                            <option value="">Wybierz</option>
+                            <!-- Opcje nadwozia -->
+                        </select>
+                    </div>
+
+                    <!-- Prawa kolumna -->
+                    <div class="form-column">
+                        <label for="brand">Marka pojazdu:</label>
+                        <select id="brand" name="brand" th:field="*{vehicleBrand}">
+                            <option th:each="brand : ${brands}" th:value="${brand.getName()}" th:text="${brand.getName()}"></option>
+                        </select>
+
+                        <label for="fuel">Rodzaj paliwa:</label>
+                        <select id="fuel" name="fuel" th:field="*{fuelType}">
+                            <option value="benzyna">Benzyna</option>
+                            <!-- Opcje paliwa -->
+                        </select>
+
+                        <label for="engine">Pojemność skokowa:</label>
+                        <input type="number" id="engine" name="engine" th:field="*{engineSize}">
+
+                        <label for="transmission">Skrzynia biegów:</label>
+                        <select id="transmission" name="transmission" th:field="*{gear}">
+                            <option value="automatyczna">automatyczna</option>
+                            <!-- Opcje skrzyni biegów -->
+                        </select>
+                        <label for="generation">Generacja:</label>
+                        <select id="generation" name="generation">
+                            <option value="">Wybierz</option>
+                            <!-- Opcje generacji -->
+                        </select>
+
+                        <label for="color">Kolor:</label>
+                        <select id="color" name="color">
+                            <option value="">Wybierz</option>
+                            <!-- Opcje koloru -->
+                        </select>
+                    </div>
+                </div>
+                <!--         -->
+                <h1>Zdjęcia</h1>
+                <div class="photos-add">
+                    <label for="picture">Zdjęcia</label>
+                    <input type="file" id="picture" th:field="*{picture}" accept="image/png, image/jpeg">
+                </div>
+                <!--         -->
+                <div class="description-add">
+                    <!-- Tytuł ogłoszenia -->
+                    <div>
+                        <label for="title">Tytuł ogłoszenia</label>
+                        <input type="text" id="title" name="title" placeholder="np. pierwszy właściciel, stan idealny, nowy akumulator" required>
+                    </div>
+
+                    <!-- Opis pojazdu -->
+                    <div>
+                        <label for="description">Opis</label>
+                        <textarea id="description" name="description" rows="10" maxlength="6000" placeholder="Szczegółowy opis pojazdu"></textarea>
+                    </div>
+                </div>
+                <!--         -->
+                <h1>Wyświetl dodatkowe szczegóły</h1>
+                <div class="details-add">
+                    <details class="summary">
+                        <summary>Dane techniczne</summary>
+                        <!-- Treść dla danych technicznych -->
+                        <p>a</p>
+                        <p>a</p>
+                        <p>a</p>
+                    </details>
+
+                    <details class="summary">
+                        <summary>Wyposażenie</summary>
+                        <!-- Treść dla wyposażenia -->
+                    </details>
+
+                    <details class="summary">
+                        <summary>Historia</summary>
+                        <!-- Treść dla historii pojazdu -->
+                    </details>
+
+                    <details class="summary">
+                        <summary>Opcje zakupu</summary>
+                        <!-- Treść dla opcji zakupu -->
+                    </details>
+                </div>
+                </div>
+                <!--         -->
+                <h1>Cena</h1>
+                <div class="price-add">
+                    <label for="price">Cena</label>
+                    <input type="number" id="price" name="price"  th:field="*{price}">
+                </div>
+                <!--         -->
+                <h1>Dane sprzedającego</h1>
+                <div class="seller-data-add">
+                    <label for="seller">Typ sprzedawcy</label>
+                    <input type="text" id="seller" name="seller"  th:field="*{seller}">
+                    <label for="location">Lokalizacja</label>
+                    <input type="text" id="location" name="location"  th:field="*{location}">
+                </div>
+                <!--         -->
+                <div class="button-add">
+                    <button type="submit">Dodaj ogłoszenie</button>
+                </div>
+        </form>
+    </div>
+</body>
+</html>

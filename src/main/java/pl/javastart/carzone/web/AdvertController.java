@@ -4,43 +4,37 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.server.ResponseStatusException;
-import pl.javastart.carzone.domain.ad.AdvService;
+import pl.javastart.carzone.domain.ad.AdService;
 import pl.javastart.carzone.domain.ad.dto.AdDto;
-
-import java.util.Optional;
-
+import pl.javastart.carzone.domain.ad.dto.AdSaveDto;
+import pl.javastart.carzone.domain.Enum.Brand;
 @Controller
 public class AdvertController {
-    private final AdvService advService;
+    private final AdService adService;
 
-    public AdvertController(AdvService advService) {
-        this.advService = advService;
+    public AdvertController(AdService adService) {
+        this.adService = adService;
     }
 
     @GetMapping("/ad/{id}")
     String getAdvert(@PathVariable long id, Model model) {
-        AdDto ad = advService.findAdById(id).
+        AdDto ad = adService.findAdById(id).
                 orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         model.addAttribute("ad", ad);
         return "advert";
     }
-
-   /* @GetMapping("/admin/dodaj-film")
-    public String addMovieForm(Model model) {
-        List<GenreDto> allGenres = genreService.findAllGenres();
-        model.addAttribute("genres", allGenres);
-        MovieSaveDto movie = new MovieSaveDto();
-        model.addAttribute("movie", movie);
-        return "admin/movie-form";
+    @GetMapping("/add-ad")
+    public String addAdForm(Model model) {
+        AdSaveDto ad = new AdSaveDto();
+        model.addAttribute("ad", ad);
+        model.addAttribute("brands",Brand.values());
+        return "add-ad";
     }
-
-    @PostMapping("/admin/dodaj-film")
-    public String addMovie(MovieSaveDto movie, RedirectAttributes redirectAttributes) {
-        movieService.addMovie(movie);
-        redirectAttributes.addFlashAttribute(
-                AdminController.NOTIFICATION_ATTRIBUTE,
-                "Film %s został zapisany".formatted(movie.getTitle()));
-        return "redirect:/admin";
-    }*/
+    @PostMapping("/add-ad")
+    public String addAd(AdSaveDto ad) {
+        adService.addAd(ad);
+        return "redirect:/";
+    }
 }
