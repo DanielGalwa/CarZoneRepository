@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="pl" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/styles/main.css">
@@ -7,7 +9,16 @@
 </head>
 <body>
 <div class="header">
-    <img src="/img/logo.png" alt="CarZone Logo" class="logo">
+    <div class="left-header">
+        <a href="/" th:href="@{/}">
+            <img src="/img/logo.png" alt="CarZone Logo" class="logo">
+        </a>
+    </div>
+    <div class="right-header">
+        <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">Zaloguj się</a>
+        <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">Wyloguj się</a>
+        <div layout:fragment="custom-links"></div>
+    </div>
 </div>
 <div layout:fragment="content" class="container">
 </div>

@@ -8,7 +8,11 @@
     <title>CarZone</title>
     <link rel="stylesheet" href="/styles/main.css">
 </head>
-<body>>
+<body>
+<!-- Header -->
+<div layout:fragment="custom-links">
+    <a href="#" th:href="@{/my-account/add-ad}">Zacznij sprzedawać</a>
+</div>
 <!-- Search Bar -->
 <div layout:fragment="content">
     <form class="search-form">

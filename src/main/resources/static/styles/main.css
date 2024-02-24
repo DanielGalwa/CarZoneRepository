@@ -8,12 +8,23 @@ body {
     background: #000;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
     width: 100px;
     height: auto;
     margin-left: 10px;
+}
+.right-header{
+    display: flex;
+    color: white;
+    margin-right: 10px;
+    gap: 20px;
+}
+.custom-links {
+    display: flex;
+    gap: 20px;
 }
 /* Menu */
 .search-form {
