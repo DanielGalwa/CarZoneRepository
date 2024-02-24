@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 import pl.javastart.carzone.domain.ad.AdService;
 import pl.javastart.carzone.domain.ad.dto.AdDto;
 import pl.javastart.carzone.domain.ad.dto.AdSaveDto;
-import pl.javastart.carzone.domain.Enum.Brand;
+import pl.javastart.carzone.domain.enums.Brand;
 @Controller
 public class AdvertController {
     private final AdService adService;
@@ -25,14 +25,14 @@ public class AdvertController {
         model.addAttribute("ad", ad);
         return "advert";
     }
-    @GetMapping("/add-ad")
+    @GetMapping("/my-account/add-ad")
     public String addAdForm(Model model) {
         AdSaveDto ad = new AdSaveDto();
         model.addAttribute("ad", ad);
         model.addAttribute("brands",Brand.values());
         return "add-ad";
     }
-    @PostMapping("/add-ad")
+    @PostMapping("/my-accountadd-ad")
     public String addAd(AdSaveDto ad) {
         adService.addAd(ad);
         return "redirect:/";
