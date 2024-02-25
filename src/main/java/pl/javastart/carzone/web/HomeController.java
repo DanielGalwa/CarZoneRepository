@@ -5,8 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.javastart.carzone.domain.ad.dto.AdDto;
 import pl.javastart.carzone.domain.ad.AdService;
-
-import java.util.List;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.data.domain.Page;
 
 @Controller
 public class HomeController {
@@ -17,9 +18,9 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    String home(Model model) {
-        List<AdDto> adsList = adService.findAllAds();
-        model.addAttribute("list", adsList);
+    String home(Model model, @PageableDefault(size = 5) Pageable pageable) {
+        Page<AdDto> adsPage = adService.findAllAds(pageable);
+        model.addAttribute("adsPage", adsPage);
         return "home";
     }
 }

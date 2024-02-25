@@ -4,8 +4,8 @@ import org.springframework.stereotype.Service;
 import pl.javastart.carzone.domain.ad.dto.AdDto;
 import pl.javastart.carzone.domain.ad.dto.AdSaveDto;
 import pl.javastart.carzone.storage.FileStorageService;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 @Service
@@ -18,10 +18,13 @@ public class AdService {
         this.fileStorageService = fileStorageService;
     }
 
-    public List<AdDto> findAllAds() {
+ /*   public List<AdDto> findAllAds() {
         return adRepository.findAll().stream()
                 .map(AdDtoMapper::map)
                 .toList();
+    }*/
+    public Page<AdDto> findAllAds(Pageable pageable) {
+        return adRepository.findAll(pageable).map(AdDtoMapper::map);
     }
     public Optional<AdDto> findAdById(long id){
         return adRepository.findById(id).map(AdDtoMapper::map);

@@ -73,7 +73,7 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <div th:each="ad : ${list}" class="card">
+        <div th:each="ad : ${adsPage}" class="card">
             <!--  Single Card  -->
             <img class="car-image"
                  th:src="${ad.picture != null} ? '/img/' + ${ad.picture} : '/img/picture-placeholder.png'"/>
@@ -94,17 +94,22 @@
             <!--  end, Single Card  -->
       </div>
   </main>
-        <!-- Pagination bar -->
-        <div class="navigation">
-            <ul class="pagination">
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li class="disabled">...</li>
-                <li><a href="#">7126</a></li>
-                <li><a href="#">&gt;</a></li>
-            </ul>
-        </div>
+    <!-- Pagination bar -->
+    <div class="navigation">
+        <ul class="pagination">
+            <li th:if="${adsPage.hasPrevious()}" class="page-item">
+                <a th:href="@{/(page=${adsPage.number - 1}, size=${adsPage.size})}" class="page-link">&laquo;</a>
+            </li>
+            <li th:each="pageNum : ${#numbers.sequence(0, adsPage.totalPages - 1)}" class="page-item"
+                th:classappend="${pageNum == adsPage.number} ? 'active' : ''">
+                <a th:href="@{/(page=${pageNum}, size=${adsPage.size})}" th:text="${pageNum + 1}" class="page-link"></a>
+            </li>
+            <li th:if="${adsPage.hasNext()}" class="page-item">
+                <a th:href="@{/(page=${adsPage.number + 1}, size=${adsPage.size})}" class="page-link">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+
 
         <!-- Fotter -->
 
