@@ -32,7 +32,7 @@ public class AdvertController {
         model.addAttribute("brands",Brand.values());
         return "add-ad";
     }
-    @PostMapping("/my-accountadd-ad")
+    @PostMapping("/my-account/add-ad")
     public String addAd(AdSaveDto ad) {
         adService.addAd(ad);
         return "redirect:/";
