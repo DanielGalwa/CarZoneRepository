@@ -34,7 +34,7 @@ public class AdvertController {
     }
     @GetMapping("/my-account")
     public String myAccount() {
-               return "my-account";
+        return "my-account";
     }
     @PostMapping("/my-account/add-ad")
     public String addAd(AdSaveDto ad) {
