@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <title>My account</title>
+</head>
+<body>
+<!-- Header -->
+<div layout:fragment="custom-links">
+    <a href="#" th:href="@{/my-account/add-ad}">Zacznij sprzedawać</a>
+</div>
+<!-- Main Content -->
+<div layout:fragment="content"> </div>
+</body>
+</html>

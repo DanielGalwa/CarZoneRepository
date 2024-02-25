@@ -10,7 +10,7 @@
 </head>
 <body>
     <div layout:fragment="content">
-        <form action="" method="post" enctype="multipart/form-data" th:object="${ad}">
+        <form th:action="@{/my-account/add-ad}" method="post" enctype="multipart/form-data" th:object="${ad}">
             <div class="add-form">
                 <h1>Stwórz ogłoszenie</h1>
                 <!--         -->
