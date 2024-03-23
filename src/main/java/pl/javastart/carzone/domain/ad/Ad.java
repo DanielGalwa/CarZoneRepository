@@ -1,9 +1,7 @@
 package pl.javastart.carzone.domain.ad;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import pl.javastart.carzone.domain.user.User;
 
 @Entity
 public class Ad {
@@ -22,6 +20,9 @@ public class Ad {
     private String location;
     private String seller;
     private String picture;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public String getPicture() {
         return picture;
@@ -125,5 +126,13 @@ public class Ad {
 
     public void setSeller(String seller) {
         this.seller = seller;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -1,5 +1,7 @@
 package pl.javastart.carzone.config.security;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -7,6 +9,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pl.javastart.carzone.domain.user.UserService;
 import pl.javastart.carzone.domain.user.dto.UserCredentialsDto;
+
+import java.util.Optional;
 
 @Service
 class CustomUserDetailsService implements UserDetailsService {
@@ -29,5 +33,10 @@ class CustomUserDetailsService implements UserDetailsService {
                 .password(credentials.getPassword())
                 .roles(credentials.getRoles().toArray(String[]::new))
                 .build();
+    }
+
+    public User getAuthenticatedUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return (User)authentication.getPrincipal();
     }
 }

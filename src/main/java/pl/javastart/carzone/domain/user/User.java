@@ -1,9 +1,12 @@
 package pl.javastart.carzone.domain.user;
 
-
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import pl.javastart.carzone.domain.ad.Ad;
 
 @Entity
 @Table(name = "users")
@@ -13,6 +16,9 @@ public class User {
     private Long id;
     private String email;
     private String password;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Ad> ads = new ArrayList<>();
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
@@ -51,5 +57,13 @@ public class User {
 
     public void setRoles(Set<UserRole> roles) {
         this.roles = roles;
+    }
+
+    public List<Ad> getAds() {
+        return ads;
+    }
+
+    public void setAds(List<Ad> ads) {
+        this.ads = ads;
     }
 }

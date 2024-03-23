@@ -1,14 +1,19 @@
 package pl.javastart.carzone.domain.ad;
 
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import pl.javastart.carzone.domain.ad.dto.AdDto;
 import pl.javastart.carzone.domain.ad.dto.AdSaveDto;
 import pl.javastart.carzone.storage.FileStorageService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Service
 public class AdService {
@@ -19,9 +24,9 @@ public class AdService {
         this.adRepository = adRepository;
         this.fileStorageService = fileStorageService;
     }
-    public Page<AdDto> findAllAds(Pageable pageable) {
+    /*public Page<AdDto> findAllAds(Pageable pageable) {
         return adRepository.findAll(pageable).map(AdDtoMapper::map);
-    }
+    }*/
 
     public Page<AdDto> findAdsByCriteria(String model, String brand, Pageable pageable) {
         Specification<Ad> spec = AdSpecification.withDynamicQuery(model, brand);
@@ -31,6 +36,7 @@ public class AdService {
     public Optional<AdDto> findAdById(long id){
         return adRepository.findById(id).map(AdDtoMapper::map);
     }
+
 
     public void addAd(AdSaveDto adToSave) {
         Ad ad = new Ad();
@@ -51,6 +57,10 @@ public class AdService {
             ad.setPicture(savedFileName);
         }
         adRepository.save(ad);
+    }
+    public List<AdDto> findAdsByUserEmail(String email) {
+        List<Ad> ads = adRepository.findByUserEmail(email);
+        return ads.stream().map(AdDtoMapper::map).collect(Collectors.toList());
     }
 
 }

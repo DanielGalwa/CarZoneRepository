@@ -13,7 +13,24 @@
 <div layout:fragment="custom-links">
     <a href="#" th:href="@{/my-account/add-ad}">Zacznij sprzedawać</a>
 </div>
-<!-- Main Content -->
-<div layout:fragment="content"> </div>
+<div layout:fragment="content">
+    <div>
+        <h2>Twoje ogłoszenia</h2>
+        <div th:if="${ads.isEmpty()}">
+            Nie masz jeszcze żadnych ogłoszeń. <a th:href="@{/my-account/add-ad}">Dodaj swoje pierwsze ogłoszenie!</a>
+        </div>
+        <div th:each="ad : ${ads}">
+            <div>
+                <h3 th:text="${ad.vehicleBrand} + ' ' + ${ad.vehicleModel}">Marka i model</h3>
+                <p th:text="${'Cena: ' + ad.price + ' zł'}">Cena</p>
+                <p th:text="${'Rok produkcji: ' + ad.yearOfProduction}">Rok produkcji</p>
+                <p th:text="${'Przebieg: ' + ad.mileage + ' km'}">Przebieg</p>
+                <p th:text="${'Paliwo: ' + ad.fuelType}">Paliwo</p>
+                <!-- Dodaj więcej informacji o ogłoszeniu według potrzeb -->
+                <a th:href="@{/ad/{id}(id=${ad.id})}">Zobacz więcej</a>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
