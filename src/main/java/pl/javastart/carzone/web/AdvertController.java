@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 import pl.javastart.carzone.domain.ad.AdService;
 import pl.javastart.carzone.domain.ad.dto.AdDto;
 import pl.javastart.carzone.domain.ad.dto.AdSaveDto;
-import pl.javastart.carzone.domain.enums.Brand;
+import pl.javastart.carzone.domain.ad.enums.Brand;
 @Controller
 public class AdvertController {
     private final AdService adService;

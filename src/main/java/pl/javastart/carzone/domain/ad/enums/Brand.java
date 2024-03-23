@@ -1,4 +1,4 @@
-package pl.javastart.carzone.domain.enums;
+package pl.javastart.carzone.domain.ad.enums;
 
 public enum Brand {
     BMW("BMW", new String[]{"Model1", "Model2", "Model3"}),

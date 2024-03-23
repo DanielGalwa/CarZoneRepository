@@ -18,54 +18,20 @@
     <form class="search-form">
         <div class="search-options">
             <div class="form-row">
-                <select name="vehicle_brand">
-                    <option value="">Toyota</option>
-                    <option value="">Mazda</option>
-                    <option value="">BMW</option>
+                <select name="vehicleBrand">
+                    <option value="">Wybierz markę</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Audi">Audi</option>
+                    <option value="BMW">BMW</option>
                 </select>
-                <select name="vehicle_model">
-                    <option value="">Model_1</option>
-                    <option value="">Model_2</option>
-                    <option value="">Model_3</option>
-                </select>
-                <select name="generation">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                </select>
-                <select name="body_type">
-                    <option value="">Sedan</option>
-                    <option value="">SUV</option>
-                    <option value="">Kombi</option>
+                <select name="vehicleModel">
+                    <option value="">Wybierz model</option>
+                    <option value="Model1">Model_1</option>
+                    <option value="Model2">Model_2</option>
+                    <option value="Model">Model_3</option>
                 </select>
                 <input name="price_from" type="text" placeholder="Cena od">
                 <input name="price_to" type="text" placeholder="Cena do">
-            </div>
-
-            <div class="form-row">
-                <input name="year_of_production_from" type="text" placeholder="Rok produkcji od">
-                <input name="year_of_production_to" type="text" placeholder="Rok produkcji do">
-                <select name="fuel_type">
-                    <option value="">Rodzaj paliwa</option>
-                </select>
-                <input name="mileage_from" type="text" placeholder="Przebieg od">
-                <input name="mileage_to" type="text" placeholder="Przebieg do">
-                <select name="location">
-                    <option value="">Lokalizacja</option>
-                </select>
-            </div>
-
-            <div class="form-row">
-                <select name="vehicle_condition">
-                    <option value="">Damaged</option>
-                    <option value="">Undamaged</option>
-                </select>
-                <input type="text" placeholder="Wpisz model, wersję lub inne szczegóły" class="search-input">
-                <label><input type="checkbox"> Możliwość finansowania</label>
-                <select name="special_programs">
-                    <option value="">Programy specjalne</option>
-                </select>
-                <button type="button" class="filters-button">Pokaż więcej filtrów</button>
                 <button type="submit"><i class="fas fa-search"></i> Szukaj</button>
             </div>
         </div>
@@ -92,32 +58,32 @@
                 <button class = "finances-button" onclick="location.href='link_do_finansowania'">Sprawdź możliwości finansowania</button>
             </div>
             <!--  end, Single Card  -->
-      </div>
-  </main>
+        </div>
+    </main>
     <!-- Pagination bar -->
     <div class="navigation">
         <ul class="pagination">
             <li th:if="${adsPage.hasPrevious()}" class="page-item">
-                <a th:href="@{/(page=${adsPage.number - 1}, size=${adsPage.size})}" class="page-link">&laquo;</a>
+                <a th:href="@{/(page=${adsPage.number - 1})}" class="page-link">&laquo;</a>
             </li>
             <li th:each="pageNum : ${#numbers.sequence(0, adsPage.totalPages - 1)}" class="page-item"
                 th:classappend="${pageNum == adsPage.number} ? 'active' : ''">
-                <a th:href="@{/(page=${pageNum}, size=${adsPage.size})}" th:text="${pageNum + 1}" class="page-link"></a>
+                <a th:href="@{/(page=${pageNum})}" th:text="${pageNum + 1}" class="page-link"></a>
             </li>
             <li th:if="${adsPage.hasNext()}" class="page-item">
-                <a th:href="@{/(page=${adsPage.number + 1}, size=${adsPage.size})}" class="page-link">&raquo;</a>
+                <a th:href="@{/(page=${adsPage.number + 1})}" class="page-link">&raquo;</a>
             </li>
         </ul>
     </div>
 
 
-        <!-- Fotter -->
+    <!-- Fotter -->
 
-        <!--
-         <footer class="footer">
-             <p>MovieClub 2022 <i class="fas fa-copyright"></i> JavaStart.pl</p>
-         </footer>
-         -->
+    <!--
+     <footer class="footer">
+         <p>MovieClub 2022 <i class="fas fa-copyright"></i> JavaStart.pl</p>
+     </footer>
+     -->
 </div>
 </body>
 </html>

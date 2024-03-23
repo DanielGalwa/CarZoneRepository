@@ -29,7 +29,6 @@ body {
 /* Menu */
 .search-form {
     display: flex;
-    /*gap: 10px;*/
     background: #ffffff;
     padding: 20px;
     justify-content: center; /* Wycentrowanie formularza */
@@ -68,7 +67,7 @@ body {
     display: flex;
     justify-content: center; /* Wycentrowanie elementów form-row */
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 30px;
     margin-bottom: 10px;
 }
 

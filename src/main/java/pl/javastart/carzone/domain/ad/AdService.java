@@ -1,5 +1,6 @@
 package pl.javastart.carzone.domain.ad;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import pl.javastart.carzone.domain.ad.dto.AdDto;
 import pl.javastart.carzone.domain.ad.dto.AdSaveDto;
@@ -7,6 +8,7 @@ import pl.javastart.carzone.storage.FileStorageService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 @Service
 public class AdService {
@@ -17,15 +19,15 @@ public class AdService {
         this.adRepository = adRepository;
         this.fileStorageService = fileStorageService;
     }
-
- /*   public List<AdDto> findAllAds() {
-        return adRepository.findAll().stream()
-                .map(AdDtoMapper::map)
-                .toList();
-    }*/
     public Page<AdDto> findAllAds(Pageable pageable) {
         return adRepository.findAll(pageable).map(AdDtoMapper::map);
     }
+
+    public Page<AdDto> findAdsByCriteria(String model, String brand, Pageable pageable) {
+        Specification<Ad> spec = AdSpecification.withDynamicQuery(model, brand);
+        return adRepository.findAll(spec, pageable).map(AdDtoMapper::map);
+    }
+
     public Optional<AdDto> findAdById(long id){
         return adRepository.findById(id).map(AdDtoMapper::map);
     }
