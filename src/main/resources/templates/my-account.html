@@ -21,13 +21,19 @@
         </div>
         <div th:each="ad : ${ads}">
             <div>
-                <h3 th:text="${ad.vehicleBrand} + ' ' + ${ad.vehicleModel}">Marka i model</h3>
-                <p th:text="${'Cena: ' + ad.price + ' zł'}">Cena</p>
-                <p th:text="${'Rok produkcji: ' + ad.yearOfProduction}">Rok produkcji</p>
-                <p th:text="${'Przebieg: ' + ad.mileage + ' km'}">Przebieg</p>
-                <p th:text="${'Paliwo: ' + ad.fuelType}">Paliwo</p>
-                <!-- Dodaj więcej informacji o ogłoszeniu według potrzeb -->
-                <a th:href="@{/ad/{id}(id=${ad.id})}">Zobacz więcej</a>
+                <!--  Single Card  -->
+                <div>
+                    <h1 th:text="${ad.vehicleBrand + ' ' + ad.vehicleModel}"></h1>
+                </div>
+                <div>
+                    <img class="car-image"
+                         th:src="${ad.picture != null} ? '/img/' + ${ad.picture} : '/img/picture-placeholder.png'"/>
+                    </div>
+                </div>
+                    <button class = "finances-button" onclick="location.href='link_do_finansowania'">Usuń ogłoszenie</button>
+                    <button class = "finances-button" onclick="location.href='link_do_finansowania'">Podejrzyj ogłoszenie</button>
+                </div>
+                <!--  end, Single Card  -->
             </div>
         </div>
     </div>

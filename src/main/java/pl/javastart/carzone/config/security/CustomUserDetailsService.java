@@ -34,9 +34,4 @@ class CustomUserDetailsService implements UserDetailsService {
                 .roles(credentials.getRoles().toArray(String[]::new))
                 .build();
     }
-
-    public User getAuthenticatedUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return (User)authentication.getPrincipal();
-    }
 }

@@ -23,7 +23,7 @@ public class HomeController {
                 @RequestParam(required = false) String vehicleModel,
                 @RequestParam(required = false) String vehicleBrand) {
 
-        //Page<AdDto> adsPage = adService.findAllAds(pageable);
+
         Page<AdDto> adsPage = adService.findAdsByCriteria(vehicleModel, vehicleBrand,pageable);
         model.addAttribute("vehicleModel",vehicleModel);
         model.addAttribute("vehicleBrand",vehicleBrand);
