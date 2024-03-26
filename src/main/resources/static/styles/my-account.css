@@ -1,0 +1,33 @@
+.centered-title {
+    text-align: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column; /* Dodane, aby elementy ustawiały się pionowo */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.car-image {
+    width: 350px;
+    height: auto;
+}
+.card {
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 30%;
+    padding-bottom: 20px;
+}
+.long-green-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #2ADD81;
+    cursor: pointer;
+    white-space: nowrap;
+    flex: 0 1 auto;
+}

@@ -59,5 +59,8 @@ public class AdService {
         List<Ad> ads = adRepository.findByUserEmail(email);
         return ads.stream().map(AdDtoMapper::map).collect(Collectors.toList());
     }
+    public void removeAdById(long id) {
+        adRepository.deleteById(id);
+    }
 
 }

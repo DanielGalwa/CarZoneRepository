@@ -4,37 +4,34 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <head>
-<head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/my-account.css">
     <title>My account</title>
 </head>
 <body>
-<!-- Header -->
-<div layout:fragment="custom-links">
-    <a href="#" th:href="@{/my-account/add-ad}">Zacznij sprzedawać</a>
-</div>
+<!-- Main Content -->
 <div layout:fragment="content">
-    <div>
-        <h2>Twoje ogłoszenia</h2>
+    <div class="main-content">
+        <h2 class="centered-title">Twoje ogłoszenia</h2>
         <div th:if="${ads.isEmpty()}">
             Nie masz jeszcze żadnych ogłoszeń. <a th:href="@{/my-account/add-ad}">Dodaj swoje pierwsze ogłoszenie!</a>
         </div>
-        <div th:each="ad : ${ads}">
+        <div th:each="ad : ${ads}" class="card">
             <div>
                 <!--  Single Card  -->
                 <div>
                     <h1 th:text="${ad.vehicleBrand + ' ' + ad.vehicleModel}"></h1>
                 </div>
                 <div>
-                    <img class="car-image"
-                         th:src="${ad.picture != null} ? '/img/' + ${ad.picture} : '/img/picture-placeholder.png'"/>
+                    <div>
+                        <img class="car-image"
+                             th:src="${ad.picture != null} ? '/img/' + ${ad.picture} : '/img/picture-placeholder.png'"/>
                     </div>
                 </div>
-                    <button class = "finances-button" onclick="location.href='link_do_finansowania'">Usuń ogłoszenie</button>
-                    <button class = "finances-button" onclick="location.href='link_do_finansowania'">Podejrzyj ogłoszenie</button>
-                </div>
-                <!--  end, Single Card  -->
+                    <button class="long-green-button" th:onclick="'location.href=\'/my-account/ad-remove/' + ${ad.id} + '\''">Usuń ogłoszenie</button>
+                    <button class="long-green-button" th:onclick="'location.href=\'/ad/' + ${ad.id} + '\''">Podejrzyj ogłoszenie</button>
             </div>
+                <!--  end, Single Card  -->
         </div>
     </div>
 </div>

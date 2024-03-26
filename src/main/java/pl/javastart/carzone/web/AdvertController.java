@@ -26,6 +26,11 @@ public class AdvertController {
         model.addAttribute("ad", ad);
         return "advert";
     }
+    @GetMapping("/my-account/ad-remove/{id}")
+    public String removeAd(@PathVariable("id") long id) {
+        adService.removeAdById(id);
+        return "redirect:/my-account";
+    }
 
     @GetMapping("/my-account/add-ad")
     public String addAdForm(Model model) {
