@@ -6,17 +6,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
+    <link rel="stylesheet" href="/styles/logging.css">
 </head>
 <body>
 <div layout:fragment="content">
-    <h2 class="list-heading">Zarejestruj się</h2>
-    <form action="#" th:action="@{/registration}" method="post"  th:object="${user}">
-        <label for="email">Adres email</label>
-        <input id="email" type="email" placeholder="nazwa użytkownika" th:field="*{email}">
-        <label for="password">Hasło</label>
-        <input id="password" placeholder="hasło" type="password" th:field="*{password}">
-        <button type="submit">Zarejestruj się</button>
-    </form>
+    <div class="logging-frame">
+        <h2 class="list-heading">Zarejestruj się</h2>
+        <form action="#" th:action="@{/registration}" method="post"  th:object="${user}">
+            <div>
+                <label for="email">Podaj adres email</label>
+            </div>
+            <div class = "element">
+                <input id="email"  class="parameter-to-choose" type="email" placeholder="nazwa użytkownika" th:field="*{email}">
+            </div>
+            <div>
+                <label for="password">Podaj hasło</label>
+            </div>
+            <div class = "element">
+                <input id="password"  class="parameter-to-choose" placeholder="hasło" type="password" th:field="*{password}">
+            </div>
+            <div class = "element">
+                <button type="submit" class="short-green-button">Zarejestruj się</button>
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>

@@ -11,33 +11,36 @@
 <div layout:fragment="content">
     <div class="logging-frame">
         <h2 class="list-heading">Zaloguj się</h2>
-    <form action="" th:action="@{/login}" method="post" class="login-form">
-        <p th:if="${param.error}"
-           th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"
-           class="login-form-message">
-            Błąd logowania.
-        </p>
-        <!-- Wylogowywanie -->
-        <p th:if="${param.logout}" class="mc-form-message">
-            Zostałeś wylogowany, możesz zalogować się ponownie.
-        </p>
-        <!--                -->
-        <div>
-            <label for="username">Email</label>
-        </div>
-        <div class = "element">
-            <input id="username" class="parameter-to-choose" name="username" placeholder="nazwa użytkownika">
-        </div>
-        <div>
-            <label for="password">Hasło</label>
-        </div>
-        <div class = "element">
-            <input id="password" name="password" class="parameter-to-choose" placeholder="hasło" type="password">
-        </div>
-        <div class = "element">
-            <button type="submit" class="short-green-button">Zaloguj się</button>
-        </div>
-    </form>
+        <form action="" th:action="@{/login}" method="post" class="login-form">
+            <p th:if="${param.error}"
+               th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"
+               class="login-form-message">
+                Błąd logowania.
+            </p>
+            <!-- Wylogowywanie -->
+            <p th:if="${param.logout}" class="mc-form-message">
+                Zostałeś wylogowany, możesz zalogować się ponownie.
+            </p>
+            <!--                -->
+            <div>
+                <label for="username">Email</label>
+            </div>
+            <div class = "element">
+                <input id="username" class="parameter-to-choose" name="username" placeholder="nazwa użytkownika">
+            </div>
+            <div>
+                <label for="password">Hasło</label>
+            </div>
+            <div class = "element">
+                <input id="password" name="password" class="parameter-to-choose" placeholder="hasło" type="password">
+            </div>
+            <div class = "element">
+                <button type="submit" class="short-green-button">Zaloguj się</button>
+            </div>
+            <div class = "register">
+                <a href="#" th:href="@{/registration}">Zarejestruj się</a>
+            </div>
+        </form>
     </div>
 </div>
 </body>

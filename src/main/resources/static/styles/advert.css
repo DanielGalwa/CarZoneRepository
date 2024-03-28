@@ -54,7 +54,7 @@
 /* Styl dla sekcji kontaktowej */
 .contact-section {
     border: 2px solid #ddd;
-    padding: 70px 20px 90px;
+    padding: 50px 20px 75px;
     margin-top: 20px;
     margin-bottom: 20px;
     width: 250px;
@@ -72,6 +72,11 @@
     border: 2px solid #2ADD81;
     padding: 10px;
     text-align: center
+}
+.seller{
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
 }
 
 .location {

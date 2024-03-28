@@ -2,11 +2,18 @@
 <html lang="pl"
       xmlns:th="https://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+      layout:decorate="~{layout}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Dodawanie ogłoszenia</title>
 </head>
+<!-- Header -->
+<div layout:fragment="right-header">
+    <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">Zaloguj się</a>
+    <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">Wyloguj się</a>
+    <a href="#" th:href="@{/my-account}">Moje konto</a>
+</div>
 <body>
     <div layout:fragment="content">
         <form th:action="@{/my-account/add-ad}" method="post" enctype="multipart/form-data" th:object="${ad}">

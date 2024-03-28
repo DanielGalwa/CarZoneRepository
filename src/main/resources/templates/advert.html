@@ -2,6 +2,7 @@
 <html lang="pl"
       xmlns:th="https://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +11,10 @@
 </head>
 <body>
 <!-- Header -->
-<div layout:fragment="custom-links">
+<div layout:fragment="right-header">
+    <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">Zaloguj się</a>
+    <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">Wyloguj się</a>
+    <a href="#" th:href="@{/my-account/add-ad}">Zacznij sprzedawać</a>
     <a href="#" th:href="@{/my-account}">Moje konto</a>
 </div>
 <!-- Main Content -->
@@ -67,6 +71,9 @@
             <div class="price" th:text="${ad.price} + ' PLN'"></div>
             <div class="contact-section">
                 <h2>Kontakt</h2>
+                <div class="seller">
+                    <span th:text="'Rodzaj sprzedawcy: ' + ${ad.seller}"></span>
+                </div>
                 <div class="phone-number">
                     <span th:text="${ad.phoneNumber}"></span>
                 </div>

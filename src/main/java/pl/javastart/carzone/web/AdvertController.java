@@ -40,7 +40,7 @@ public class AdvertController {
         AdSaveDto ad = new AdSaveDto();
         model.addAttribute("ad", ad);
         model.addAttribute("brands",Brand.values());
-        return "add-ad";
+        return "add-ad-form";
     }
     @PostMapping("/my-account/add-ad")
     public String addAd(AdSaveDto ad) {

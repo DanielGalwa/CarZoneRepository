@@ -14,12 +14,7 @@
             <img src="/img/logo.png" alt="CarZone Logo" class="logo">
         </a>
     </div>
-    <div class="right-header">
-        <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">Zaloguj się</a>
-        <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">Wyloguj się</a>
-        <a href="#" th:href="@{/my-account/add-ad}">Zacznij sprzedawać</a>
-        <div layout:fragment="custom-links"></div>
-    </div>
+    <div layout:fragment="right-header" class="right-header"></div>
 </div>
 <div layout:fragment="content" class="container">
 </div>

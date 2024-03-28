@@ -25,6 +25,10 @@ public class AccountController {
         this.userService = userService;
     }
 
+    @GetMapping("/login")
+    public String loginForm() {
+        return "login-form";
+    }
     @GetMapping("/my-account")
     public String myAccount(Model model, Principal principal) {
         String username = principal.getName();
