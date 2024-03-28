@@ -10,16 +10,13 @@ import pl.javastart.carzone.domain.ad.AdService;
 import pl.javastart.carzone.domain.ad.dto.AdDto;
 import pl.javastart.carzone.domain.ad.dto.AdSaveDto;
 import pl.javastart.carzone.domain.ad.enums.Brand;
-import pl.javastart.carzone.domain.user.UserService;
 
 @Controller
 public class AdvertController {
     private final AdService adService;
-    private final UserService userService;
 
-    public AdvertController(AdService adService,UserService userService) {
+    public AdvertController(AdService adService) {
         this.adService = adService;
-        this.userService = userService;
     }
 
     @GetMapping("/ad/{id}")
