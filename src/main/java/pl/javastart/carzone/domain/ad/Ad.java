@@ -20,6 +20,8 @@ public class Ad {
     private String location;
     private String seller;
     private String picture;
+
+    private String bodyType;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
@@ -126,6 +128,14 @@ public class Ad {
 
     public void setSeller(String seller) {
         this.seller = seller;
+    }
+
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
     }
 
     public User getUser() {

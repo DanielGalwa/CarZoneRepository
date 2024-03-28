@@ -13,6 +13,7 @@
                 <constraints unique="true"/>
             </column>
             <column name="password" type="VARCHAR(200)"/>
+            <column name="phone_number" type="VARCHAR(100)"/>
         </createTable>
 
         <createTable tableName="user_role">

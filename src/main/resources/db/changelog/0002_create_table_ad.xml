@@ -21,6 +21,8 @@
             <column name="location" type="VARCHAR(100)"/>
             <column name="seller" type="VARCHAR(100)"/>
             <column name="picture" type="VARCHAR(100)"/>
+            <column name="body_type" type="VARCHAR(100)"/>
+            <column name="phone_number" type="VARCHAR(100)"/>
             <column name="user_id" type="BIGINT">
                 <constraints nullable="false"
                              foreignKeyName="fk_ad_user"

@@ -5,6 +5,7 @@ import java.util.Set;
 public class UserCredentialsDto {
     private final String email;
     private final String password;
+
     private final Set<String> roles;
 
     public UserCredentialsDto(String email, String password, Set<String> roles) {

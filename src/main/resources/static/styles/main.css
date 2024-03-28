@@ -26,6 +26,48 @@ body {
     display: flex;
     gap: 20px;
 }
+
+.short-green-button {
+    padding: 10px 20px; /* Większy padding dla większych przycisków */
+    font-size: 16px; /* Większa czcionka dla tekstu w przyciskach */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #2ADD81;
+    cursor: pointer; /* Dodanie wskaźnika kursora */
+    white-space: nowrap;
+    flex: 0 1 auto;
+}
+
+.short-green-button:active {
+    background: #20A761;
+}
+
+.long-green-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #2ADD81;
+    cursor: pointer;
+    white-space: nowrap;
+    flex: 0 1 auto;
+}
+
+.long-green-button:active {
+    background: #20A761;
+}
+
+.parameter-to-choose{
+    padding: 10px; /* Większy padding */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    min-width: 120px; /* Minimalna szerokość dla elementów */
+    flex: 1; /* Elastyczność dla zachowania proporcji */
+}
+
 /* Links style */
 a, a:visited, a:hover, a:active {
     color: inherit;

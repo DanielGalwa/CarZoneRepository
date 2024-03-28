@@ -1,0 +1,19 @@
+.login-form-message {
+    text-align: center;
+}
+.logging-frame {
+    border: 2px solid #ddd;
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.element{
+    padding: 5px;
+}

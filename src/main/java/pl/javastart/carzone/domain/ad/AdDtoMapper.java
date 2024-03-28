@@ -8,6 +8,6 @@ public class AdDtoMapper {
                 ad.getVehicleModel(), ad.getPrice(), ad.getEngineSize(),
                 ad.getPower(), ad.getMileage(), ad.getFuelType(),
                 ad.getGear(), ad.getYearOfProduction(), ad.getLocation(),
-                ad.getSeller(),ad.getPicture());
+                ad.getSeller(),ad.getPicture(),ad.getBodyType(),ad.getUser().getPhoneNumber());
     }
 }

@@ -16,8 +16,12 @@ public class AdDto {
 
     private String picture;
 
+    private String bodyType;
+
+    private String phoneNumber;
+
     public AdDto(Long id, String vehicleBrand, String vehicleModel, int price, int engineSize, int power, int mileage,
-                 String fuelType, String gear, int yearOfProduction, String location, String seller, String picture) {
+                 String fuelType, String gear, int yearOfProduction, String location, String seller, String picture,String bodyType,String phoneNumber) {
         this.id = id;
         this.vehicleBrand = vehicleBrand;
         this.vehicleModel = vehicleModel;
@@ -31,6 +35,24 @@ public class AdDto {
         this.location = location;
         this.seller = seller;
         this.picture = picture;
+        this.bodyType = bodyType;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
     }
 
     public String getPicture() {

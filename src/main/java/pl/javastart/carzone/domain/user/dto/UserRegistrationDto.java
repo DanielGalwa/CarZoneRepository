@@ -3,6 +3,15 @@ package pl.javastart.carzone.domain.user.dto;
 public class UserRegistrationDto {
     private String email;
     private String password;
+    private String phoneNumber;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getEmail() {
         return email;

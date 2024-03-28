@@ -1,5 +1,5 @@
-insert into users (email, password) values ('admin@example.com', '{noop}adminpass');
-insert into users (email, password) values ('user@example.com', '{noop}userpass');
+insert into users (email, password, phone_number) values ('admin@example.com', '{noop}adminpass','333-222-111');
+insert into users (email, password, phone_number) values ('user@example.com', '{noop}userpass','888-999-333');
 
 insert into user_role (name, description) values ('ADMIN', 'pełne uprawnienia');
 insert into user_role (name, description) values ('USER', 'podstawowe uprawnienia');

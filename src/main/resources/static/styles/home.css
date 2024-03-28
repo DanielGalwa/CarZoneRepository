@@ -6,35 +6,6 @@
     justify-content: center; /* Wycentrowanie formularza */
 }
 
-.search-form select,
-.search-form input[type="text"],
-.search-form input[type="number"] {
-    padding: 10px; /* Większy padding */
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background: white;
-    min-width: 120px; /* Minimalna szerokość dla elementów */
-    flex: 1; /* Elastyczność dla zachowania proporcji */
-}
-
-
-.short-green-button {
-    padding: 10px 20px; /* Większy padding dla większych przycisków */
-    font-size: 16px; /* Większa czcionka dla tekstu w przyciskach */
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background: #2ADD81;
-    cursor: pointer; /* Dodanie wskaźnika kursora */
-    white-space: nowrap;
-    flex: 0 1 auto;
-}
-
-.search-form button:active {
-    background: #20A761;
-}
-
-
 .form-row {
     display: flex;
     justify-content: center; /* Wycentrowanie elementów form-row */
@@ -46,18 +17,6 @@
 .form-row .search-input {
     flex-grow: 2; /* Większa elastyczność dla pola wyszukiwania */
     min-width: 240px; /* Minimalna szerokość dla pola wyszukiwania */
-}
-
-
-/* Styles For Label with Checkboxem */
-.form-row label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.form-row label input[type="checkbox"] {
-    margin-right: 5px;
 }
 
 
@@ -97,17 +56,6 @@
     margin-left: auto;
 }
 
-.long-green-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background: #2ADD81;
-    cursor: pointer;
-    white-space: nowrap;
-    flex: 0 1 auto;
-}
 /* Pagination style */
 .pagination {
     display: flex;

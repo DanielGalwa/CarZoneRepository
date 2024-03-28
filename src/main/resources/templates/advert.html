@@ -39,7 +39,7 @@
                     <td>Moc</td> <td th:text="${ad.power}"></td>
                 </tr>
                 <tr>
-                    <td>Lokalizacja</td> <td th:text="${ad.location}"></td>
+                    <td>Nadwozie</td> <td th:text="${ad.bodyType}"></td>
                 </tr>
             </table>
             <!-- Right column -->
@@ -62,10 +62,18 @@
     <!-- Right Side of Page -->
     <div class="right">
         <div class="base-informations">
-            <h1 th:text="${ad.vehicleBrand + ' ' + ad.vehicleModel}"></h1>
+            <h1 class="base-informations-h" th:text="${ad.vehicleBrand + ' ' + ad.vehicleModel}"></h1>
             <div th:text="${ad.yearOfProduction + ' · ' + ad.mileage + ' km · ' + ad.engineSize + ' cm³ · ' + ad.fuelType}"></div>
             <div class="price" th:text="${ad.price} + ' PLN'"></div>
-            <div>Faktura VAT</div>
+            <div class="contact-section">
+                <h2>Kontakt</h2>
+                <div class="phone-number">
+                    <span th:text="${ad.phoneNumber}"></span>
+                </div>
+                <div class="location">
+                    <span th:text="${ad.location}"></span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
