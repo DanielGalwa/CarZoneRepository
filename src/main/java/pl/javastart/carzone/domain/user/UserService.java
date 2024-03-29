@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import pl.javastart.carzone.domain.user.dto.UserCredentialsDto;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
-import pl.javastart.carzone.domain.user.dto.UserCredentialsDto;
 import pl.javastart.carzone.domain.user.dto.UserRegistrationDto;
 import java.util.Optional;
 
@@ -35,5 +34,9 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(userRegistration.getPassword()));
         user.getRoles().add(defaultRole);
         userRepository.save(user);
+    }
+
+    public Optional<User> findByUsername(String email) {
+        return userRepository.findByEmail(email);
     }
 }

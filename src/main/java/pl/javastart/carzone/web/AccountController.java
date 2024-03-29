@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.javastart.carzone.domain.ad.AdService;
 import pl.javastart.carzone.domain.ad.dto.AdDto;
+import pl.javastart.carzone.domain.user.User;
 import pl.javastart.carzone.domain.user.UserService;
 import pl.javastart.carzone.domain.user.dto.UserCredentialsDto;
 import pl.javastart.carzone.domain.user.dto.UserRegistrationDto;
@@ -33,6 +34,9 @@ public class AccountController {
     public String myAccount(Model model, Principal principal) {
         String username = principal.getName();
         Optional<UserCredentialsDto> user = userService.findCredentialsByEmail(username);
+        if(user.isEmpty()){
+            return "redirect:/error/404";
+        }
         String email = user.get().getEmail();
         List<AdDto> adsForCurrentUser = adService.findAdsByUserEmail(email);
         model.addAttribute("ads", adsForCurrentUser);

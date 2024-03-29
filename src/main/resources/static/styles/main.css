@@ -28,13 +28,13 @@ body {
 }
 
 .short-green-button {
-    padding: 10px 20px; /* Większy padding dla większych przycisków */
-    font-size: 16px; /* Większa czcionka dla tekstu w przyciskach */
+    padding: 10px 20px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     color: white;
     background: #2ADD81;
-    cursor: pointer; /* Dodanie wskaźnika kursora */
+    cursor: pointer;
     white-space: nowrap;
     flex: 0 1 auto;
 }
@@ -67,7 +67,9 @@ body {
     min-width: 120px; /* Minimalna szerokość dla elementów */
     flex: 1; /* Elastyczność dla zachowania proporcji */
 }
-
+.error-container{
+    text-align: center;
+}
 /* Links style */
 a, a:visited, a:hover, a:active {
     color: inherit;

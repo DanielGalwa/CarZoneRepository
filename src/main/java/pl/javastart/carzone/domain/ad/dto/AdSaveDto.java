@@ -16,9 +16,18 @@ public class AdSaveDto {
     private String location;
     private String seller;
 
+    private String bodyType;
+
     private MultipartFile picture;
 
 
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
+    }
 
     public Long getId() {
         return id;
