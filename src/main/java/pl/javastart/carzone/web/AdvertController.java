@@ -13,7 +13,6 @@ import pl.javastart.carzone.domain.ad.enums.Brand;
 import pl.javastart.carzone.domain.user.User;
 import pl.javastart.carzone.domain.user.UserService;
 import java.security.Principal;
-
 @Controller
 public class AdvertController {
     private final AdService adService;

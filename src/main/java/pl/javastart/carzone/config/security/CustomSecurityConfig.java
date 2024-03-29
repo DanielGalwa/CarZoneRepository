@@ -16,7 +16,6 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 public class CustomSecurityConfig {
     private static final String USER_ROLE = "USER";
-    private static final String ADMIN_ROLE = "ADMIN";
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authz) -> authz

@@ -23,20 +23,20 @@
                     <h1>Dane dotyczące pojazdu</h1>
                     <div class="element">
                         <div>
-                            <label for="brand">Marka pojazdu:</label>
+                            <label for="brandSelect">Marka pojazdu:</label>
                         </div>
                         <div>
-                            <select id="brand" name="brand" class="parameter-to-choose" th:field="*{vehicleBrand}">
+                            <select id="brandSelect" name="brand" class="parameter-to-choose" th:field="*{vehicleBrand}">
                                 <option th:each="brand : ${brands}" th:value="${brand.getName()}" th:text="${brand.getName()}"></option>
                             </select>
                         </div>
                     </div>
                     <div class="element">
                         <div>
-                            <label for="model">Model pojazdu:</label>
+                            <label for="modelSelect">Model pojazdu:</label>
                         </div>
                         <div>
-                            <select id="model" name="model" class="parameter-to-choose" th:field="*{vehicleModel}">
+                            <select id="modelSelect" name="model" class="parameter-to-choose" th:field="*{vehicleModel}">
                                 <option value="testModel">testModel</option>
                                 <!-- Opcje modelu -->
                             </select>

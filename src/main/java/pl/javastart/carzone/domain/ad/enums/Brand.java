@@ -1,9 +1,9 @@
 package pl.javastart.carzone.domain.ad.enums;
 
 public enum Brand {
-    BMW("BMW", new String[]{"Model1", "Model2", "Model3"}),
-    AUDI("Audi", new String[]{"Model1", "Model2", "Model3"}),
-    MERCEDES("Mercedes", new String[]{"Model1", "Model2", "Model3"});
+    BMW("BMW", new String[]{"Seria 5", "Seria 3", "Seria 8"}),
+    AUDI("Audi", new String[]{"A8", "A5", "A3"}),
+    MERCEDES("Mercedes", new String[]{"S klasa", "C klasa", "A klasa"});
     // ... pozostałe marki
 
     private final String[] models;
