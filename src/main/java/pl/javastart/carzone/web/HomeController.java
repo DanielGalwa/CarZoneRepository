@@ -9,6 +9,9 @@ import pl.javastart.carzone.domain.ad.AdService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.domain.Page;
+import pl.javastart.carzone.domain.ad.enums.BodyType;
+import pl.javastart.carzone.domain.ad.enums.Brand;
+import pl.javastart.carzone.domain.ad.enums.VehicleModel;
 
 @Controller
 public class HomeController {
@@ -21,12 +24,20 @@ public class HomeController {
     @GetMapping("/")
     String home(Model model, @PageableDefault(size = 5) Pageable pageable,
                 @RequestParam(required = false) String vehicleModel,
-                @RequestParam(required = false) String vehicleBrand) {
+                @RequestParam(required = false) String vehicleBrand,
+                @RequestParam(required = false) String bodyType){
 
 
-        Page<AdDto> adsPage = adService.findAdsByCriteria(vehicleModel, vehicleBrand,pageable);
+        Page<AdDto> adsPage = adService.findAdsByCriteria(vehicleModel, vehicleBrand, bodyType,pageable);
         model.addAttribute("vehicleModel",vehicleModel);
+        model.addAttribute("models", VehicleModel.values());
+
         model.addAttribute("vehicleBrand",vehicleBrand);
+        model.addAttribute("brands", Brand.values());
+
+        model.addAttribute("bodyType",bodyType);
+        model.addAttribute("bodyTypes", BodyType.values());
+
         model.addAttribute("adsPage", adsPage);
         return "home";
     }

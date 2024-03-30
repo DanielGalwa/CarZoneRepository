@@ -24,19 +24,36 @@
             <div class="form-row">
                 <select name="vehicleBrand" class="parameter-to-choose">
                     <option value="">Wybierz markę</option>
-                    <option value="Toyota">Toyota</option>
-                    <option value="Audi">Audi</option>
-                    <option value="BMW">BMW</option>
+                    <option th:each="brand : ${brands}" th:value="${brand.getName()}" th:text="${brand.getName()}"></option>
                 </select>
                 <select name="vehicleModel" class="parameter-to-choose">
                     <option value="">Wybierz model</option>
-                    <option value="Model1">Model_1</option>
-                    <option value="Model2">Model_2</option>
-                    <option value="Model">Model_3</option>
+                    <option th:each="vehModel : ${models}" th:value="${vehModel.getName()}" th:text="${vehModel.getName()}"></option>
+                </select>
+                <select name="bodyType" class="parameter-to-choose">
+                    <option value="">Wybierz nadwozie</option>
+                    <option th:each="bodyCar : ${bodyTypes}" th:value="${bodyCar.getName()}" th:text="${bodyCar.getName()}"></option>
                 </select>
                 <input name="price_from" type="text" class="parameter-to-choose" placeholder="Cena od">
                 <input name="price_to" type="text" class="parameter-to-choose" placeholder="Cena do">
-                <button type="submit" class="short-green-button"><i class="fas fa-search"></i> Szukaj</button>
+            </div>
+            <div class="form-row">
+                <input name="power_from" type="text" class="parameter-to-choose" placeholder="Moc od">
+                <input name="power_to" type="text" class="parameter-to-choose" placeholder="Moc do">
+                <input name="mileage_from" type="text" class="parameter-to-choose" placeholder="Przebieg od">
+                <input name="mileage_to" type="text" class="parameter-to-choose" placeholder="Przebieg do">
+                <select id="fuel" name="fuel" class="parameter-to-choose">
+                    <option value="">Rodzaj paliwa</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <input name="engineSize_from" type="text" class="parameter-to-choose" placeholder="Pojemność od">
+                <input name="engineSize_to" type="text" class="parameter-to-choose" placeholder="Pojemność do">
+                <select id="transmission" name="transmission" class="parameter-to-choose">
+                    <option value="">Skrzynia biegów</option>
+                </select>
+                <input type="text" id="location" name="location" class="parameter-to-choose" placeholder="Lokalizacja">
+                <button type="submit" class="home-form-button"><i class="fas fa-search"></i> Szukaj</button>
             </div>
         </div>
     </form>

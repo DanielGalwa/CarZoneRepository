@@ -20,7 +20,6 @@ public class Ad {
     private String location;
     private String seller;
     private String picture;
-
     private String bodyType;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

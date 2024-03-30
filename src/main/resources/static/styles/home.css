@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center; /* Wycentrowanie elementów form-row */
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
     margin-bottom: 10px;
 }
 
@@ -54,6 +54,19 @@
 .car-price {
     font-weight: bold;
     margin-left: auto;
+}
+
+.home-form-button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #2ADD81;
+    cursor: pointer;
+    white-space: nowrap;
+    min-width: 120px;
+    flex: 1;
 }
 
 /* Pagination style */
