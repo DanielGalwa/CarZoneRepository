@@ -37,8 +37,7 @@
                         </div>
                         <div>
                             <select id="modelSelect" name="model" class="parameter-to-choose" th:field="*{vehicleModel}">
-                                <option value="testModel">testModel</option>
-                                <!-- Opcje modelu -->
+                                <option th:each="vehModel : ${models}" th:value="${vehModel.getName()}" th:text="${vehModel.getName()}"></option>
                             </select>
                         </div>
                     </div>
@@ -48,8 +47,7 @@
                         </div>
                         <div>
                             <select id="body" name="body" class="parameter-to-choose" th:field="*{bodyType}">
-                                <option value="coupe">coupe</option>
-                                <!-- Opcje nadwozia -->
+                                <option th:each="bodyCar : ${bodyTypes}" th:value="${bodyCar.getName()}" th:text="${bodyCar.getName()}"></option>
                             </select>
                         </div>
                     </div>
@@ -59,8 +57,7 @@
                         </div>
                         <div>
                             <select id="fuel" name="fuel" class="parameter-to-choose" th:field="*{fuelType}">
-                                <option value="benzyna">Benzyna</option>
-                                <!-- Opcje paliwa -->
+                                <option th:each="fuel : ${fuelTypes}" th:value="${fuel.getName()}" th:text="${fuel.getName()}"></option>
                             </select>
                         </div>
                     </div>
@@ -70,8 +67,7 @@
                         </div>
                         <div>
                             <select id="transmission" name="transmission" class="parameter-to-choose" th:field="*{gear}">
-                                <option value="automatyczna">automatyczna</option>
-                                <!-- Opcje skrzyni biegów -->
+                                <option th:each="gearbox : ${gearboxTypes}" th:value="${gearbox.getName()}" th:text="${gearbox.getName()}"></option>
                             </select>
                         </div>
                     </div>
@@ -81,8 +77,7 @@
                         </div>
                         <div>
                             <select id="seller" name="seller" class="parameter-to-choose" th:field="*{seller}">
-                                <option value="Osoba prywatna">Osoba prywatna</option>
-                                <!-- Opcje sprzedawców -->
+                                <option th:each="seller : ${sellerTypes}" th:value="${seller.getName()}" th:text="${seller.getName()}"></option>
                             </select>
                         </div>
                     </div>

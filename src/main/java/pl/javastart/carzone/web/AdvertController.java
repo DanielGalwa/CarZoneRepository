@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 import pl.javastart.carzone.domain.ad.AdService;
 import pl.javastart.carzone.domain.ad.dto.AdDto;
 import pl.javastart.carzone.domain.ad.dto.AdSaveDto;
-import pl.javastart.carzone.domain.ad.enums.Brand;
+import pl.javastart.carzone.domain.ad.enums.*;
 import pl.javastart.carzone.domain.user.User;
 import pl.javastart.carzone.domain.user.UserService;
 import java.security.Principal;
@@ -42,6 +42,11 @@ public class AdvertController {
         AdSaveDto ad = new AdSaveDto();
         model.addAttribute("ad", ad);
         model.addAttribute("brands",Brand.values());
+        model.addAttribute("models", VehicleModel.values());
+        model.addAttribute("bodyTypes", BodyType.values());
+        model.addAttribute("fuelTypes", Fuel.values());
+        model.addAttribute("gearboxTypes", Gearbox.values());
+        model.addAttribute("sellerTypes",Seller.values());
         return "add-ad-form";
     }
     @PostMapping("/my-account/add-ad")
