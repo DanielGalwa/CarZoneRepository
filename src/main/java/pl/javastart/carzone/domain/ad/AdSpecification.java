@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AdSpecification {
 
-    public static Specification<Ad> withDynamicQuery(String model, String brand,String bodyType) {
+    public static Specification<Ad> withDynamicQuery(String model, String brand,String bodyType,String gearBox,String fuel) {
         return (root, query, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
 
@@ -20,6 +20,14 @@ public class AdSpecification {
 
             if (bodyType != null && !bodyType.isEmpty()){
                 predicates.add(criteriaBuilder.equal(root.get("bodyType"), bodyType));
+            }
+
+            if (gearBox != null && !gearBox.isEmpty()){
+                predicates.add(criteriaBuilder.equal(root.get("gear"), gearBox));
+            }
+
+            if (fuel != null && !fuel.isEmpty()){
+                predicates.add(criteriaBuilder.equal(root.get("fuelType"), fuel));
             }
 
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));

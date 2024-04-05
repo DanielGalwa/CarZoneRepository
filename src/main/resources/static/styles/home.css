@@ -52,10 +52,29 @@
 }
 /* Finances fetails*/
 .car-price {
-    font-weight: bold;
-    margin-left: auto;
+    border: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
 }
 
+.price-tag {
+    background-color: #2ADD81;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    font-weight: bold;
+}
+
+.price-amount {
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    height: 50%;
+}
+/* Button */
 .home-form-button {
     padding: 10px;
     font-size: 16px;

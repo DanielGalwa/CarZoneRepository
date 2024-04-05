@@ -26,8 +26,8 @@ public class AdService {
         this.fileStorageService = fileStorageService;
     }
 
-    public Page<AdDto> findAdsByCriteria(String model, String brand, String bodyType, Pageable pageable) {
-        Specification<Ad> spec = AdSpecification.withDynamicQuery(model, brand, bodyType);
+    public Page<AdDto> findAdsByCriteria(String model, String brand, String bodyType, String gearBox, String fuel,Pageable pageable) {
+        Specification<Ad> spec = AdSpecification.withDynamicQuery(model, brand, bodyType, gearBox, fuel);
         return adRepository.findAll(spec, pageable).map(AdDtoMapper::map);
     }
 

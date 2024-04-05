@@ -42,15 +42,17 @@
                 <input name="power_to" type="text" class="parameter-to-choose" placeholder="Moc do">
                 <input name="mileage_from" type="text" class="parameter-to-choose" placeholder="Przebieg od">
                 <input name="mileage_to" type="text" class="parameter-to-choose" placeholder="Przebieg do">
-                <select id="fuel" name="fuel" class="parameter-to-choose">
+                <select name="fuel" class="parameter-to-choose">
                     <option value="">Rodzaj paliwa</option>
+                    <option th:each="fuel : ${fuelTypes}" th:value="${fuel.getName()}" th:text="${fuel.getName()}"></option>
                 </select>
             </div>
             <div class="form-row">
                 <input name="engineSize_from" type="text" class="parameter-to-choose" placeholder="Pojemność od">
                 <input name="engineSize_to" type="text" class="parameter-to-choose" placeholder="Pojemność do">
-                <select id="transmission" name="transmission" class="parameter-to-choose">
+                <select name="gearBox" class="parameter-to-choose">
                     <option value="">Skrzynia biegów</option>
+                    <option th:each="gearBox : ${gearBoxTypes}" th:value="${gearBox.getName()}" th:text="${gearBox.getName()}"></option>
                 </select>
                 <input type="text" id="location" name="location" class="parameter-to-choose" placeholder="Lokalizacja">
                 <button type="submit" class="home-form-button"><i class="fas fa-search"></i> Szukaj</button>
@@ -74,9 +76,12 @@
                 <p>Rodzaj sprzedawcy: <span th:text="${ad.seller}"></span></p>
             </div>
             <div class="car-price">
-                <p th:text="${ad.price + 'PLN'}"></p>
-                <p>W granicach średniej</p>
-                <button class = "long-green-button" onclick="location.href='link_do_finansowania'">Sprawdź możliwości finansowania</button>
+                <div class="price-tag">
+                    <span>CENA</span>
+                </div>
+                <div class="price-amount">
+                    <p th:text="${ad.price + 'PLN'}"></p>
+                </div>
             </div>
             <!--  end, Single Card  -->
         </div>
