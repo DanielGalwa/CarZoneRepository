@@ -25,9 +25,21 @@ public class HomeController {
                 @RequestParam(required = false) String vehicleBrand,
                 @RequestParam(required = false) String bodyType,
                 @RequestParam(required = false) String gearBox,
-                @RequestParam(required = false) String fuel){
+                @RequestParam(required = false) String fuel,
+                @RequestParam(required = false) Integer priceFrom,
+                @RequestParam(required = false) Integer priceTo,
+                @RequestParam(required = false) Integer mileageFrom,
+                @RequestParam(required = false) Integer mileageTo,
+                @RequestParam(required = false) Integer powerFrom,
+                @RequestParam(required = false) Integer powerTo,
+                @RequestParam(required = false) Integer engineSizeFrom,
+                @RequestParam(required = false) Integer engineSizeTo,
+                @RequestParam(required = false) String location){
 
-        Page<AdDto> adsPage = adService.findAdsByCriteria(vehicleModel, vehicleBrand, bodyType, gearBox, fuel,pageable);
+        Page<AdDto> adsPage = adService.findAdsByCriteria(vehicleModel, vehicleBrand, bodyType, gearBox, fuel,
+                priceFrom, priceTo, mileageFrom, mileageTo, powerFrom, powerTo, engineSizeFrom, engineSizeTo,
+                location, pageable);
+
         model.addAttribute("vehicleModel",vehicleModel);
         model.addAttribute("models", VehicleModel.values());
 
@@ -42,6 +54,20 @@ public class HomeController {
 
         model.addAttribute("fuel",fuel);
         model.addAttribute("fuelTypes", Fuel.values());
+
+        model.addAttribute("priceFrom",priceFrom);
+        model.addAttribute("priceTo",priceTo);
+
+        model.addAttribute("mileageFrom", mileageFrom);
+        model.addAttribute("mileageTo", mileageTo);
+
+        model.addAttribute("powerFrom", powerFrom);
+        model.addAttribute("powerTo", powerTo);
+
+        model.addAttribute("engineSizeFrom", engineSizeFrom);
+        model.addAttribute("engineSizeTo", engineSizeTo);
+
+        model.addAttribute("location", location);
 
         model.addAttribute("adsPage", adsPage);
         return "home";

@@ -34,27 +34,27 @@
                     <option value="">Wybierz nadwozie</option>
                     <option th:each="bodyCar : ${bodyTypes}" th:value="${bodyCar.getName()}" th:text="${bodyCar.getName()}"></option>
                 </select>
-                <input name="price_from" type="text" class="parameter-to-choose" placeholder="Cena od">
-                <input name="price_to" type="text" class="parameter-to-choose" placeholder="Cena do">
+                <input name="priceFrom" type="number" class="parameter-to-choose" placeholder="Cena od" min="0" th:value="${priceFrom}">
+                <input name="priceTo" type="number" class="parameter-to-choose" placeholder="Cena do" min="1" th:value="${priceTo}">
             </div>
             <div class="form-row">
-                <input name="power_from" type="text" class="parameter-to-choose" placeholder="Moc od">
-                <input name="power_to" type="text" class="parameter-to-choose" placeholder="Moc do">
-                <input name="mileage_from" type="text" class="parameter-to-choose" placeholder="Przebieg od">
-                <input name="mileage_to" type="text" class="parameter-to-choose" placeholder="Przebieg do">
+                <input name="powerFrom" type="number" class="parameter-to-choose" placeholder="Moc od" min="0" th:value="${powerFrom}">
+                <input name="powerTo" type="number" class="parameter-to-choose" placeholder="Moc do" min="1" th:value="${powerTo}">
+                <input name="mileageFrom" type="number" class="parameter-to-choose" placeholder="Przebieg od" min="0" th:value="${mileageFrom}">
+                <input name="mileageTo" type="number" class="parameter-to-choose" placeholder="Przebieg do" min="1" th:value="${mileageTo}">
                 <select name="fuel" class="parameter-to-choose">
                     <option value="">Rodzaj paliwa</option>
                     <option th:each="fuel : ${fuelTypes}" th:value="${fuel.getName()}" th:text="${fuel.getName()}"></option>
                 </select>
             </div>
             <div class="form-row">
-                <input name="engineSize_from" type="text" class="parameter-to-choose" placeholder="Pojemność od">
-                <input name="engineSize_to" type="text" class="parameter-to-choose" placeholder="Pojemność do">
+                <input name="engineSizeFrom" type="number" class="parameter-to-choose" placeholder="Pojemność od" min="0" th:value="${engineSizeFrom}">
+                <input name="engineSizeTo" type="number" class="parameter-to-choose" placeholder="Pojemność do" min="1" th:value="${engineSizeTo}">
                 <select name="gearBox" class="parameter-to-choose">
                     <option value="">Skrzynia biegów</option>
                     <option th:each="gearBox : ${gearBoxTypes}" th:value="${gearBox.getName()}" th:text="${gearBox.getName()}"></option>
                 </select>
-                <input type="text" id="location" name="location" class="parameter-to-choose" placeholder="Lokalizacja">
+                <input type="text" name="location" class="parameter-to-choose" placeholder="Lokalizacja" th:value="${location}">
                 <button type="submit" class="home-form-button"><i class="fas fa-search"></i> Szukaj</button>
             </div>
         </div>
